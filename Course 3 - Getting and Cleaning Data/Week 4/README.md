@@ -14,6 +14,8 @@ features.txt
 subject_train.txt  
 subject_test.txt  
 
+
+The output of this code is the tidy tidy_data txt file that is the average of activities per subject.    
 The code in run_analysis will do the following:  
 1. Reads the train and test files and merges them into merged_df (rbind)  
 2. Reads the features file, separates numbers from the feature names and only
@@ -24,7 +26,7 @@ The code in run_analysis will do the following:
 6. Extracts only mean and std columns and saves them into data_stats  
 7. Reads subject train and test files, merges them into subject_merged  
 8. Creates id_data table that is the merged_df table with the subject_id added  
-9. Calculates the mean for each measurement for each subject_id and saves it 
-   into subject_avg  
-10. Removes the data files and vectors except the ones needed  
+9. Only keep the activity data along with the subject_id  
+10. Calculates the mean for each activity for each subject_id and writes a txt file tidy_data.txt   
+11. Removes the data files and vectors except the ones needed  
 

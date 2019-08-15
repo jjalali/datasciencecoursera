@@ -141,11 +141,13 @@ id_data <- cbind(merged_df, subject_merged)
 # rename the column to subject_id
 id_data <- rename(id_data, subject_id = V1)
 
+id_data <- select(id_data, matches('walking|walking_up|walking_dn|sitting|subject_id'))
+
 subject_avg <- id_data %>%
         group_by(subject_id) %>%
         summarise_all(mean)
 
-write.csv(merged_df, "tidy_data.csv")
+write.table(subject_avg, "tidy_data.txt", row.names = FALSE)
 
 rm(i, train_df, test_df, subject_train, subject_test)
 
