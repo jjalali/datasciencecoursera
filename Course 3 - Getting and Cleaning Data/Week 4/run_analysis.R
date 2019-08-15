@@ -26,13 +26,13 @@ merged_df <- rbind(train_df, test_df)
 # merged_df <- tbl_df(rbind(train_df, test_df))
 
 # import the feature names
-features <- read_tsv("features.txt", col_names = FALSE)
+features_orig <- read_tsv("features.txt", col_names = FALSE)
 
 # extract the feature name and discard the row number
-features <- separate(features, X1, c(NA, "feature"), " ")
+features_orig <- separate(features_orig, X1, c(NA, "feature"), " ")
 
 # remove special characters from the feature names
-features <- features  %>%
+features <- features_orig  %>%
         # update the movements from numbers to more meaningful names - X direction
         sapply(str_replace_all, "\\)1", "\\)_walking") %>%
         sapply(str_replace_all, "\\)2", "\\)_walking_up") %>%
@@ -64,6 +64,7 @@ features <- features  %>%
         
         tolower()
 
+features_orig <- tbl_df(features_orig)
 features <- tbl_df(features)
 
 # direction is missing from some parameters, add them

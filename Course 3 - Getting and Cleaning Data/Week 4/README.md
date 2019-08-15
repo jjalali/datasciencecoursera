@@ -7,6 +7,13 @@ output: html_document
 
 ## About the analysis
 
+To run the code, make sure that the five data files are in the same folder as the run_analysis.R code. These five files are:  
+X_train.txt  
+X_test.txt  
+features.txt  
+subject_train.txt  
+subject_test.txt  
+
 The code in run_analysis will do the following:  
 1. Reads the train and test files and merges them into merged_df (rbind)  
 2. Reads the features file, separates numbers from the feature names and only
