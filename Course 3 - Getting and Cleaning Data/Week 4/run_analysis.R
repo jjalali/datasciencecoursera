@@ -145,6 +145,8 @@ subject_avg <- id_data %>%
         group_by(subject_id) %>%
         summarise_all(mean)
 
+write.csv(merged_df, "tidy_data.csv")
+
 rm(i, train_df, test_df, subject_train, subject_test)
 
 
