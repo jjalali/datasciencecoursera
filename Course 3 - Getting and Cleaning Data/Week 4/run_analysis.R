@@ -11,12 +11,12 @@ rm(list = ls())
 library(tidyverse)
 
 # Read train data into train_df
-train_df <- read.table("./UCI HAR Dataset/train/X_train.txt", header = FALSE, sep = "")
+train_df <- read.table("X_train.txt", header = FALSE, sep = "")
 # train_df <- tbl_df(train)
 # rm(train)
 
 # read test data file into test_df
-test_df <- read.table("./UCI HAR Dataset/test/X_test.txt", header = FALSE, sep = "")
+test_df <- read.table("X_test.txt", header = FALSE, sep = "")
 # test_df <- tbl_df(test)
 # rm(test)
 
@@ -26,7 +26,7 @@ merged_df <- rbind(train_df, test_df)
 # merged_df <- tbl_df(rbind(train_df, test_df))
 
 # import the feature names
-features <- read_tsv("./UCI HAR Dataset/features.txt", col_names = FALSE)
+features <- read_tsv("features.txt", col_names = FALSE)
 
 # extract the feature name and discard the row number
 features <- separate(features, X1, c(NA, "feature"), " ")
@@ -127,9 +127,9 @@ data_stats <- merged_df %>%
 
 
 # import subject IDs for both training and testing sets
-subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt", header = FALSE, sep = "")
+subject_train <- read.table("subject_train.txt", header = FALSE, sep = "")
 
-subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt", header = FALSE, sep = "")
+subject_test <- read.table("subject_test.txt", header = FALSE, sep = "")
 
 # merge the two tables
 subject_merged <- rbind(subject_train, subject_test)
